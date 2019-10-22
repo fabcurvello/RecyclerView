@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.recyclerview.R;
+import com.example.recyclerview.adapter.Adapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,11 +21,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
 
         //Configurar Adapter
+        Adapter adapter = new Adapter();
 
         //Configurar RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter( );
+        recyclerView.setLayoutManager( layoutManager );
+        recyclerView.setHasFixedSize( true );
+        recyclerView.setAdapter( adapter );
     }
 }
