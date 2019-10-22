@@ -9,8 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recyclerview.R;
+import com.example.recyclerview.model.Disciplina;
+
+import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
+
+    private List<Disciplina> listaDisciplinas;
+
+    public Adapter(List<Disciplina> lista) {
+        this.listaDisciplinas = lista;
+    }
 
     @NonNull
     @Override
@@ -23,16 +32,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         //Método para exibir os itens da lista
-        holder.disciplina.setText("Computação para Dispositivos Móveis");
-        holder.professor.setText("Fabrício Curvello");
-        holder.diaSemana.setText("QUI");
-        holder.sala.setText("LAB 02");
+        Disciplina d = listaDisciplinas.get( position );
+        holder.disciplina.setText( d.getNomeDisciplina() );
+        holder.professor.setText( d.getProfessor() );
+        holder.diaSemana.setText( d.getDiaSemana() );
+        holder.sala.setText( d.getSala() );
     }
 
     @Override
     public int getItemCount() {
         //Quantidade de itens a ser exibida
-        return 10;
+        return listaDisciplinas.size();
     }
 
 
